@@ -6,6 +6,7 @@ from config import UID, ACCESS_TOKEN
 
 def follower_ids(uid, access_token):
     # Doc: https://open.weibo.com/wiki/2/friendships/followers/ids
+    # Access token: https://open.weibo.com/tools/console
 
     url = "https://api.weibo.com/2/friendships/followers/ids.json"
     params = {'uid': uid,
