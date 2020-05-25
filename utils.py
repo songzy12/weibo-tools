@@ -2,12 +2,10 @@ import requests
 from lxml import etree
 
 
-def deal_html(url, cookie):
-    print("url:", url)
+def handle_html(url, cookie):
+    print(url)
     html = requests.get(url, cookies=cookie).content
     selector = etree.HTML(html)
-    import code
-    code.interact(local=locals())
     return selector
 
 

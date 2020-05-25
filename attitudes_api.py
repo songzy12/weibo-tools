@@ -23,7 +23,7 @@ def fetch_attitudes(status_id):
             code.interact(local=locals())
         if not resp["ok"]:
             break
-        data.append(resp['data']['data'])
+        data += resp['data']['data']
         time.sleep(1)
     with io.open("data/attitudes.json", "w", encoding='utf8') as f:
         f.write(json.dumps(data, indent=4, ensure_ascii=False))
