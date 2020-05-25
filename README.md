@@ -13,3 +13,13 @@ python friendships.py
 然后依次点击打印出的用户主页链接，确认后手动移除粉丝。
 
 注意：这里不知道为什么在清除完垃圾粉丝后会有新的输出，所以在移除粉丝时要注意确认。
+
+## Test
+
+```
+python -m unittest -v utils_test
+```
+
+## Reference
+
+<https://github.com/dataabc/weiboSpider>

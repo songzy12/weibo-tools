@@ -1,6 +1,7 @@
+# Given a user id, find its zombie followers.
 import requests
 
-from utils import home_page
+from utils import get_home_page
 from config import UID, ACCESS_TOKEN
 
 
@@ -17,8 +18,9 @@ def follower_ids(uid, access_token):
     ids = resp['ids']
     return ids
 
+
 if __name__ == '__main__':
     follower_ids = follower_ids(UID, ACCESS_TOKEN)
     print("zombies:")
     for uid in follower_ids:
-        print(home_page(uid))
+        print(get_home_page(uid))
