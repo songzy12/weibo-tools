@@ -37,16 +37,24 @@ if __name__ == "__main__":
 
     user_info = []
     user_id_set = set()
-    for item in items:
-        user = item["user"]
-        if user['id'] in user_id_set:
-            continue
-        user_id_set.add(user['id'])
+    with open("data/last_index.txt") as f:
+        start = int(f.read())
+    try:
+        for i, item in enumerate(items):
+            if i < start:
+                continue
+            user = item["user"]
+            if user['id'] in user_id_set:
+                continue
+            user_id_set.add(user['id'])
 
-        user["source"] = item["source"]
-        user['created_at'] = item['created_at']
-        print(user['screen_name'])
-        user_info.append(get_user_info(user))
-        time.sleep(1)
-    with io.open("data/user_info.json", "w", encoding="utf8") as f:
-        f.write(json.dumps(user_info, indent=4, ensure_ascii=False))
+            user["source"] = item["source"]
+            user['created_at'] = item['created_at']
+            print(i, user['screen_name'])
+            user_info.append(get_user_info(user))
+            time.sleep(3)
+    except:
+        with io.open("data/user_info_%s_%s.json" % (start, i), "w", encoding="utf8") as f:
+            f.write(json.dumps(user_info, indent=4, ensure_ascii=False))
+        with io.open("data/last_index.txt", "w") as f:
+            f.write(str(i))
