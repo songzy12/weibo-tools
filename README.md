@@ -14,12 +14,12 @@ python friendships.py
 
 注意：这里不知道为什么在清除完垃圾粉丝后会有新的输出，所以在移除粉丝时要注意确认。
 
-## Test
+## 测试
 
 ```
 python -m unittest -v utils_test
 ```
 
-## Reference
+## 参考
 
 <https://github.com/dataabc/weiboSpider>
